@@ -4,13 +4,19 @@
   margin: 0;
 }
 
+
+.MuiAppBar-colorPrimary {
+    color: #fff!important;
+    background-color: #AB20C8!important;
+}
+
 body {
   background-color: #303032;
 }
 
 main {
   display: grid;
-  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
+  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;  
   grid-gap: 40px;
   padding: 60px 0;
 }
@@ -34,7 +40,7 @@ main {
   grid-column-end: span 4;
   display: flex;
   flex-direction: column;
-  background-color: #39393b;
+  background-color: #474747;
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
