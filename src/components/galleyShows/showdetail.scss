@@ -54,9 +54,11 @@ html, body{
         border: 1px solid rgba(255,255,255,0.13);
       }
       .type{
-        display: inline-block;
-        color: #cee4fd;
-        margin-left: 10px;
+        display: block;
+        color: #fff;
+        margin-left: 100px;
+        padding: 5px;
+        border-radius: 5px;
       }
       .locandina{
         position: relative;
@@ -115,6 +117,7 @@ html, body{
   
   .movie_desc{
     width: 50%;
+    margin-top: 50px;
   }
   
   .info_section{
@@ -131,7 +134,7 @@ html, body{
   .movie_card{
     width: 95%;
     margin: 70px auto; 
-    min-height: 350px;
+    min-height: 200px;
     height: auto;
   }
   
@@ -142,15 +145,16 @@ html, body{
   
   .movie_header{
     width: 100%;
-    margin-top: 85px;
+    margin-top: 100px;
   }
   
   .movie_desc{
     width: 100%;
+    margin-top: -30px;
   }
   
   .info_section{
-    background: linear-gradient(to top, rgb(20, 20, 19) 50%, transparent 100%);
+    background: linear-gradient(to top, rgb(48, 48, 50) 50%, transparent 100%);
     display: inline-grid;
   }
 }
@@ -163,7 +167,9 @@ html, body{
   }
 }
 
-.bright_back{
-  background: url("https://occ-0-2433-448.1.nflxso.net/art/cd5c9/3e192edf2027c536e25bb5d3b6ac93ced77cd5c9.jpg");
+.fit{
+  width: 100%;
 }
-
+.icon-color{
+  color: white;
+}
