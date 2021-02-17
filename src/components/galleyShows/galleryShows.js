@@ -1,15 +1,10 @@
 import React, {useState, useEffect, Fragment} from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import MovieDetails from '../../MovieDetails';
-import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
-import Grid from '@material-ui/core/Grid';
+
 
 const useStyles = makeStyles((muiBaseTheme) => ({
   card: {
@@ -127,7 +122,9 @@ const GalleryShows = () =>{
             </p>
             <div class="card__info">
               <p class="text--medium">{show.popularity}</p>
-              <p class="card__price text--medium"><MovieDetails id={show.id} /></p>
+              <Router>
+                  <p class="card__price text--medium"><MovieDetails id={show.id} /></p>
+              </Router>
             </div>
           </div>
         </div>
