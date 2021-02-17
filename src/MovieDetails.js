@@ -4,6 +4,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 const MovieDetails = (id) => {
@@ -11,7 +12,8 @@ const MovieDetails = (id) => {
     const [description, setDescription] = useState('');
     const [genres, setGenres] = useState([]);
     const [runtime, setRuntime] = useState([]);
-
+    const [idD, setIdD] = useState(0);
+    console.log(id)
     let baseURL = 'https://api.themoviedb.org/3/';
     let APIKEY = "246b0bf3d0e3c6774646b3686452e8ab";
     const showModal = (movieItem) => {
@@ -25,7 +27,8 @@ const MovieDetails = (id) => {
          .then((data) => {
              setDescription(data.overview);
              setGenres(data.genres);
-             setRuntime(data.episode_run_time)
+             setRuntime(data.episode_run_time);
+             setIdD(data.id);
              
          })
      }
@@ -44,9 +47,15 @@ const MovieDetails = (id) => {
     
     return (
     <div>
-      <Button style={{color: "#fff"}} onClick={handleClickOpen}>
-        Show details
-      </Button> 
+      <Router>
+        <Switch>
+          <Route exact path={`/gallery/show-details/${idD}`} >
+              <Button style={{color: "#fff"}} onClick={handleClickOpen}>
+                Show details
+              </Button>
+          </Route> 
+        </Switch>
+      </Router>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -76,5 +85,7 @@ const MovieDetails = (id) => {
     </div>
   );
 }
+
+
 
 export default MovieDetails;
