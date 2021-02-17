@@ -2,8 +2,10 @@ import React, {useState, useEffect, Fragment} from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import MovieDetails from '../../MovieDetails';
+import ShowDetails from './showDetails';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
+import { Button } from '@material-ui/core';
 
 
 const useStyles = makeStyles((muiBaseTheme) => ({
@@ -42,7 +44,9 @@ const useStyles = makeStyles((muiBaseTheme) => ({
   }
 }));
 
-const GalleryShows = () =>{
+const GalleryShows = (props) =>{
+  const { history } = props;
+  console.log(props)
     const [shows, setShows] = useState([]);
     const [key, setKey] = useState(JSON.parse(localStorage.getItem('key')));
     const [baseImgURL, setBaseImgURL] = useState('');
@@ -91,12 +95,16 @@ const GalleryShows = () =>{
         setFav(false)
       }
     }
-
+ 
 
     useEffect(() => {
       localStorage.setItem('fav', JSON.stringify(fav));
       localStorage.setItem('key', JSON.stringify(key))
     }, [fav])
+
+    const handleButtonClick = pageURL => {
+      history.push(pageURL);
+    };
 
     useEffect(() => {
         getConfig()
@@ -106,6 +114,7 @@ const GalleryShows = () =>{
 
     
     return (
+   
       <main>
       <section class="cards">
       {shows.map((show) => 
@@ -122,15 +131,21 @@ const GalleryShows = () =>{
             </p>
             <div class="card__info">
               <p class="text--medium">{show.popularity}</p>
-              <Router>
-                  <p class="card__price text--medium"><MovieDetails id={show.id} /></p>
-              </Router>
+              <p class="card__price text--medium">
+                <Button
+                  style={{color: "#fff"}}
+                  onClick={() => handleButtonClick(`/gallery/show/${show.id}`)}
+                >
+                  Show more
+                </Button>
+              </p>
             </div>
           </div>
         </div>
          )}
       </section>
     </main>
+
     )
 
 }
