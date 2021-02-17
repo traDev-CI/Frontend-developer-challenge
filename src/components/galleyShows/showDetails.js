@@ -60,7 +60,7 @@ const ShowDetails = (props) => {
           <h1>{name}</h1>
           <h4>{date.getFullYear()}, David Ayer</h4>
           <p><span class="minutes">{`${runtime} min`}</span></p>
-          <p class="type">{`Genres: ${genres.map((g) => g.name)}`}</p>
+         
         </div>
         <div class="movie_desc">
           <p class="text">
