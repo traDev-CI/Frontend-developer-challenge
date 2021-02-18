@@ -22,8 +22,5 @@ If you would like to download the code and try it for yourself:
 2. Install packages: `npm install`
 4. Open your browser at: `http://localhost:8000`
 
-## Node.js
-Supports LTS version (v14).
-
 ## Author
 [Alfredo Rivas Jimenez]()
