@@ -10,7 +10,7 @@ Key tools used in this React project are:
 | :-------------:|--------------|
 | [React](http://facebook.github.io/react/index.html) | A JavaScript library for building user interfaces |
 | [SASS](http://sass-lang.com/) | 	Sass is the most mature, stable, and powerful professional grade CSS extension language in the world |
-| [MATERIAL UI](https://material-ui.com/) Material-UI is an open-source project that features React components that implement Google’s Material Design.|
+| [MATERIAL UI](https://material-ui.com/) | Material-UI is an open-source project that features React components that implement Google’s Material Design.
 
 ## Installation
 [node.js](http://nodejs.org/download/) is required to get ``npm``.
