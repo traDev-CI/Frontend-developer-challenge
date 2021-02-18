@@ -1,15 +1,12 @@
 import React, {useState, useEffect, Fragment} from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import MovieDetails from '../../MovieDetails';
-import Typography from '@material-ui/core/Typography';
+import ShowDetails from './showDetails';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
-import Grid from '@material-ui/core/Grid';
+import { Button } from '@material-ui/core';
+
 
 const useStyles = makeStyles((muiBaseTheme) => ({
   card: {
@@ -47,7 +44,9 @@ const useStyles = makeStyles((muiBaseTheme) => ({
   }
 }));
 
-const GalleryShows = () =>{
+const GalleryShows = (props) =>{
+  const { history } = props;
+  console.log(props)
     const [shows, setShows] = useState([]);
     const [key, setKey] = useState(JSON.parse(localStorage.getItem('key')));
     const [baseImgURL, setBaseImgURL] = useState('');
@@ -69,7 +68,7 @@ const GalleryShows = () =>{
         configData = data.images;
         console.log('config:', data);
         console.log(configData);
-        runSearch('a')
+        runSearch('c')
     })
     .catch(function(err){
         alert(err);
@@ -96,12 +95,16 @@ const GalleryShows = () =>{
         setFav(false)
       }
     }
-
+ 
 
     useEffect(() => {
       localStorage.setItem('fav', JSON.stringify(fav));
       localStorage.setItem('key', JSON.stringify(key))
     }, [fav])
+
+    const handleButtonClick = pageURL => {
+      history.push(pageURL);
+    };
 
     useEffect(() => {
         getConfig()
@@ -111,6 +114,7 @@ const GalleryShows = () =>{
 
     
     return (
+   
       <main>
       <section class="cards">
       {shows.map((show) => 
@@ -127,13 +131,21 @@ const GalleryShows = () =>{
             </p>
             <div class="card__info">
               <p class="text--medium">{show.popularity}</p>
-              <p class="card__price text--medium"><MovieDetails id={show.id} /></p>
+              <p class="card__price text--medium">
+                <Button
+                  style={{color: "#fff"}}
+                  onClick={() => handleButtonClick(`/gallery/show/${show.id}`)}
+                >
+                  Show more
+                </Button>
+              </p>
             </div>
           </div>
         </div>
          )}
       </section>
     </main>
+
     )
 
 }
