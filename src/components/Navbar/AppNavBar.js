@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   headerOptions: {
     display: "flex",
     flex: 1,
-    justifyContent: "space-evenly"
+    justifyContent: "flex-end"
   }
 }));
 
@@ -107,14 +107,14 @@ const NavAppBar = props => {
             </>
           ) : (
             <div className={classes.headerOptions}>
-              {/* <Button
-                variant="contained"
+              <Button
+                 color="inherit"
                 onClick={() => handleButtonClick("/")}
               >
                 HOME
-              </Button> */}
+              </Button>
               <Button
-                variant="contained"
+                color="inherit"
                 onClick={() => handleButtonClick("/gallery")}
               >
                 Gallery
