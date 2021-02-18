@@ -1,7 +1,11 @@
 import React from 'react';
 import './Home.css';
 
-const Home = () => {
+const Home = (props) => {
+    const { history } = props;
+    const handleButtonClick = pageURL => {
+        history.push(pageURL);
+      };
     return (
         <div className="main">
             <div className="container-card">
@@ -14,7 +18,7 @@ const Home = () => {
                     <img src="https://miro.medium.com/max/600/1*PiHoomzwh9Plr9_GA26JcA.png" alt="" class="img" />
                     <p className="name">Alfredo Rivas Jimenez</p>
                     <div className="status">Active</div>
-                    <button className="btn">To be continued</button>
+                    <button className="btn" onClick={() => handleButtonClick("/gallery")}>Go to the gallery</button>
                 </div>
             </div>
         </div>
