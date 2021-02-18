@@ -116,24 +116,24 @@ const GalleryShows = (props) =>{
     return (
    
       <main>
-      <section class="cards">
+      <section className="cards">
       {shows.map((show) => 
-        <div class="card">
-          <div class="card__image-container">
+        <div className="card">
+          <div className="card__image-container">
             <img
               src={`${baseImgURL}/original/${show.poster_path}`}
               alt="Detailed image description would go here."
             />
           </div>
-          <div class="card__content">
-            <p class="card__title text--medium">
+          <div className="card__content">
+            <p className="card__title text--medium">
               {show.name}   <IconButton className={fav === true, key === show.id ? "iconFavM" : "iconFav"} onClick={() => handledFavAction(show.id)} ><FavoriteIcon /></IconButton>
             </p>
-            <div class="card__info">
-              <p class="text--medium">{show.popularity}</p>
-              <p class="card__price text--medium">
+            <div className="card__info">
+              <p className="text--medium">{show.popularity}</p>
+              <p className="card__price">
                 <Button
-                  style={{color: "#fff"}}
+                  className="btn-more"
                   onClick={() => handleButtonClick(`/gallery/show/${show.id}`)}
                 >
                   Show more
