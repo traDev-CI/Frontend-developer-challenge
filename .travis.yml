@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "12"
+
+branches:
+  only:
+  - master
+ 
+deploy:
+  provider: heroku
+  app: "reacteng"
+  api-key: "03a81a0f-99cd-48d7-9bb5-777c2be03551"
