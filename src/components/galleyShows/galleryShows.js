@@ -130,7 +130,7 @@ const GalleryShows = (props) =>{
               {show.name}   <IconButton className={fav === true, key === show.id ? "iconFavM" : "iconFav"} onClick={() => handledFavAction(show.id)} ><FavoriteIcon /></IconButton>
             </p>
             <div className="card__info">
-              <p className="text--medium">{show.popularity}</p>
+              <p className="text--medium">{`Popularity ${show.popularity}`}</p>
               <p className="card__price">
                 <Button
                   className="btn-more"

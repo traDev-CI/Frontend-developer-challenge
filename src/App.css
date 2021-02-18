@@ -43,6 +43,7 @@ main {
   background-color: #474747;
   cursor: pointer;
   transition: all 0.3s ease 0s;
+  border-radius: 20px;
 }
 
 .card:hover {
@@ -54,6 +55,8 @@ main {
   padding-top: 100%;
   overflow: hidden;
   position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .card__image-container img {
@@ -88,9 +91,9 @@ main {
 
 .card__price {
   margin-left: auto;
-  padding: 5px 20px;
+  padding: 5px 10px;
   background-color: #303032;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .btn-more{
   color: white!important;
