@@ -1,19 +1,12 @@
 language: node_js
 node_js:
-  - "10"
-sudo: false
- 
+  - "12"
+
 branches:
   only:
   - master
  
-cache:
-  directories:
-    - node_modules
- 
 deploy:
   provider: heroku
-  skip_cleanup: true
-  keep-history: true
-  api-key: HEROKU_API_KEY
-  app: HEROKU_APP_NAME
+  app: "reacteng"
+  api-key: "03a81a0f-99cd-48d7-9bb5-777c2be03551"
