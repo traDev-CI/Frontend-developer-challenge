@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "10"
+  - "12"
 
 branches:
   only:
@@ -8,7 +8,7 @@ branches:
  
 deploy:
   provider: heroku
-   app: HEROKU_APP_NAME
+  app: HEROKU_APP_NAME
   api-key: 
     secure: HEROKU_API_KEY
  
