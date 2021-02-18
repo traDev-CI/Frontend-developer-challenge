@@ -68,7 +68,7 @@ const GalleryShows = (props) =>{
         configData = data.images;
         console.log('config:', data);
         console.log(configData);
-        runSearch('a')
+        runSearch('c')
     })
     .catch(function(err){
         alert(err);

@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
+import TvIcon from '../../assest/icon/tvIcon'
 
 
 
 const ShowDetails = (props) => {
     const [data, setData] = useState(0);
-    console.log(props.match.params.id)
+    const [genres, setGenres] = useState([]);
+    const [runtime, setRuntime] = useState([]);
+    const [description ,setDescription]= useState('')
     let baseURL = 'https://api.themoviedb.org/3/';
     let APIKEY = "246b0bf3d0e3c6774646b3686452e8ab";
 
@@ -15,25 +18,21 @@ const ShowDetails = (props) => {
          .then(result => result.json())
          .then((data) => {
              setData(data);
+             setGenres(data.genres)
+             setRuntime(data.episode_run_time)
+             setDescription(data.overview)
              console.log(data)
              
          })
      }
 
         let posterIMG =  'https://image.tmdb.org/t/p/w500' + data.poster_path,
+          backposter = 'https://image.tmdb.org/t/p/w500' + data.backdrop_path,
           name= data.name,
-          description= data.overview,
-          production = data.production,
-          productionCountries = data.production_countries,
-          genres = data.genres,
-          runtime= data.episode_run_time,
           firtsDat= data.first_air_date,
-          totalRevenue = data.revenue,
-          productionList = nestedDataToString(production),
-          productionCountriesList = nestedDataToString(productionCountries),
-          noData = '-',
-          genresList = nestedDataToString(genres),
-          backdropIMG = 'https://image.tmdb.org/t/p/original' + data.backdrop;
+          episodes= data.number_of_episodes,
+          seasons= data.number_of_seasons,
+          genresList = nestedDataToString(genres);
           const date = new Date(firtsDat);
 
           function nestedDataToString(nestedData) {
@@ -47,35 +46,33 @@ const ShowDetails = (props) => {
             resultString = nestedArray.join(', '); // array to string
             return resultString;
           };
+         
 
     useEffect(() => {
         movieDetail(props.match.params.id)
     }, [])
 
     return (
-      <div class="movie_card" id="bright">
-      <div class="info_section">
-        <div class="movie_header">
-          <img class="locandina" src={posterIMG}/>
+      <div className="movie_card" id="bright">
+      <div className="info_section">
+        <div className="movie_header">
+          <img className="locandina" src={posterIMG}/>
           <h1>{name}</h1>
-          <h4>{date.getFullYear()}, David Ayer</h4>
-          <p><span class="minutes">{`${runtime} min`}</span></p>
-         
+          <h4>{date.getFullYear()}</h4>
+          <p><span class="minutes">{`Runtime ${runtime} min`}</span></p>
+          <p className="type">{`Genres: ${genresList}`}</p>
+          <p className="type"> {`${episodes} episodes`} </p>
+          <p className="type"> {`${seasons} seasons`}</p>
         </div>
-        <div class="movie_desc">
-          <p class="text">
-            {description} 
+        <div className="movie_desc">
+          <p className="text">
+            {description.substring(0, 200)} 
           </p>
         </div>
-        <div class="movie_social">
-          <ul>
-            <li><i class="material-icons">share</i></li>
-            <li><i class="material-icons"></i></li>
-            <li><i class="material-icons">chat_bubble</i></li>
-          </ul>
-        </div>
       </div>
-      <div class="blur_back bright_back"></div>
+      <div className="blur_back">
+        <img className="fit" src={backposter} />
+      </div>
     </div>
     )
 }
