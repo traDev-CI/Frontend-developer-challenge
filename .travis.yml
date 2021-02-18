@@ -8,7 +8,5 @@ branches:
  
 deploy:
   provider: heroku
-   app: HEROKU_APP_NAME
-  api-key: 
-    secure: HEROKU_API_KEY
- 
+  app: HEROKU_APP_NAME
+  api-key: HEROKU_API_KEY
