@@ -1,4 +1,4 @@
-# TMDb Movie Search
+# TMDb Movie Gallery
 
 ## Demo
 [Frontend developer Challenge - Live DEMO](https://reacteng.herokuapp.com/)
