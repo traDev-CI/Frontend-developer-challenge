@@ -61,7 +61,6 @@ const ShowDetails = (props) => {
           <h4>{date.getFullYear()}</h4>
           <p><span class="minutes">{`Runtime ${runtime} min`}</span></p>
           <p className="type">{`Genres: ${genresList}`}</p>
-          <TvIcon className="icon-color" />
           <p className="type"> {`${episodes} episodes`} </p>
           <p className="type"> {`${seasons} seasons`}</p>
         </div>
