@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import IconButton from "@material-ui/core/IconButton";
 import { Button } from "@material-ui/core";
 
 var baseURL = "https://api.themoviedb.org/3/";
@@ -11,11 +8,7 @@ var APIKEY = "246b0bf3d0e3c6774646b3686452e8ab";
 const GalleryShows = (props) => {
   const { history } = props;
   const [shows, setShows] = useState([]);
-  const [key, setKey] = useState(JSON.parse(localStorage.getItem("key")));
   const [baseImgURL, setBaseImgURL] = useState("");
-  const [fav, setFav] = useState(
-    JSON.parse(localStorage.getItem("fav")) || false
-  );
 
   const getConfig = () => {
     let url = "".concat(baseURL, "configuration?api_key=", APIKEY);
@@ -50,23 +43,33 @@ const GalleryShows = (props) => {
         setShows(data.results);
       });
   };
-  const handledFavAction = (id) => {
-    if (fav === false) {
-      setKey(id);
-      setFav(true);
-    } else {
-      setKey(0);
-      setFav(false);
-    }
-  };
 
-  useEffect(() => {
-    localStorage.setItem("fav", JSON.stringify(fav));
-    localStorage.setItem("key", JSON.stringify(key));
-  }, [fav]);
+  console.log(shows);
 
   const handleButtonClick = (pageURL) => {
     history.push(pageURL);
+  };
+
+  const getNewDate = (date) => {
+    const newDate = new Date(date);
+    const monthStrign = new Array(
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre"
+    );
+    const month = monthStrign[newDate.getMonth()];
+    const day = newDate.getDate();
+    const year = newDate.getFullYear();
+      return month +" "+ (day + 1)+", "+ year
   };
 
   useEffect(() => {
@@ -77,7 +80,10 @@ const GalleryShows = (props) => {
     <main>
       <section className="cards">
         {shows.map((show) => (
-          <div className="card">
+          <div
+            className="card"
+            onClick={() => handleButtonClick(`/gallery/show/${show.id}`)}
+          >
             <div className="card__image-container">
               <img
                 src={`${baseImgURL}/original/${show.poster_path}`}
@@ -85,31 +91,13 @@ const GalleryShows = (props) => {
               />
             </div>
             <div className="card__content">
-              <p className="card__title text--medium">
+              <p className="card__title text--medium text--title">
                 {show.name}{" "}
-                <IconButton
-                  className={
-                    (fav === true, key === show.id ? "iconFavM" : "iconFav")
-                  }
-                  onClick={() => handledFavAction(show.id)}
-                >
-                  <FavoriteIcon />
-                </IconButton>
               </p>
               <div className="card__info">
-                <p className="text--medium">{`Popularity ${show.popularity.toFixed(
-                  2
-                )}`}</p>
-                <p className="card__price">
-                  <Button
-                    className="btn-more"
-                    onClick={() =>
-                      handleButtonClick(`/gallery/show/${show.id}`)
-                    }
-                  >
-                    Show more
-                  </Button>
-                </p>
+                <p className="text--medium">
+                  {getNewDate(show.first_air_date)}
+                </p>  
               </div>
             </div>
           </div>
