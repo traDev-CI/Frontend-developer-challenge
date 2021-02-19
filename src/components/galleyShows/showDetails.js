@@ -27,7 +27,6 @@ const ShowDetails = (props) => {
         setRuntime(data.episode_run_time);
         setDescription(data.overview);
         setCreator(data.created_by);
-        console.log(data);
       });
   };
 
