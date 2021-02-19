@@ -1,5 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 
+
+//This hook will help you to detect in which part of the screen a component is found.
 const useNearScreen = ({distance = '100px'} = { }) => {
     const fromRef = useRef();
     const [isNearScreen, setView] = useState(false);
