@@ -4,10 +4,9 @@
   margin: 0;
 }
 
-
 .MuiAppBar-colorPrimary {
-    color: #fff!important;
-    background-color: #AB20C8!important;
+  color: #fff !important;
+  background-color: #ab20c8 !important;
 }
 
 body {
@@ -16,7 +15,7 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;  
+  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
   grid-gap: 40px;
   padding: 60px 0;
 }
@@ -41,7 +40,6 @@ main {
   display: flex;
   flex-direction: column;
   background-color: #474747;
-  cursor: pointer;
   transition: all 0.3s ease 0s;
   border-radius: 20px;
 }
@@ -75,11 +73,11 @@ main {
 .card__title {
   margin-bottom: 20px;
 }
-.card__title .iconFav{
+.card__title .iconFav {
   color: white;
 }
 
-.card__title .iconFavM{
+.card__title .iconFavM {
   color: red;
 }
 
@@ -95,8 +93,8 @@ main {
   background-color: #303032;
   border-radius: 10px;
 }
-.btn-more{
-  color: white!important;
+.btn-more {
+  color: white !important;
 }
 
 @media only screen and (max-width: 1000px) {
