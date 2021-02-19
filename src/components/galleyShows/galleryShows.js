@@ -1,17 +1,60 @@
-import React, { lazy, Suspense } from "react";
-import useNearScreen from '../../Hooks/useNearScreen';
-import ImageGrid from '../../assest/spinner/spinner';
-import { Button } from "@material-ui/core";
+import React from 'react';
 
-const GalleryShows = lazy((props) => import('./getGallery'))
+const GalleryShows = ({ shows, handleButtonClick, baseImgURL }) => {
+  
+  //Get the date with the name of the month
+  const getNewDate = date => {
+    const newDate = new Date(date);
+    const monthStrign = new Array(
+      'Enero',
+      'Febrero',
+      'Marzo',
+      'Abril',
+      'Mayo',
+      'Junio',
+      'Julio',
+      'Agosto',
+      'Septiembre',
+      'Octubre',
+      'Noviembre',
+      'Diciembre'
+    );
+    const month = monthStrign[newDate.getMonth()];
+    const day = newDate.getDate();
+    const year = newDate.getFullYear();
+    return month + ' ' + (day + 1) + ', ' + year;
+  };
 
-export default function LazyGalleryShows(props) {
-  const {hidtory} = props;
-  const {isNearScreen, fromRef} = useNearScreen({distance: '200px'});
+  return (
+    <main>
+      <section className="cards">
+        {shows.map(show => (
+          <div
+            key={show.id}
+            className="card"
+            onClick={() => handleButtonClick(`/gallery/show/${show.id}`)}
+          >
+            <div className="card__image-container">
+              <img
+                src={`${baseImgURL}/original/${show.poster_path}`}
+                alt="Detailed image description would go here."
+              />
+            </div>
+            <div className="card__content">
+              <p className="card__title text--medium text--title">
+                {show.name}{' '}
+              </p>
+              <div className="card__info">
+                <p className="text--medium">
+                  {getNewDate(show.first_air_date)}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
+    </main>
+  );
+};
 
-  return <div ref={fromRef}>
-    <Suspense fallback={<ImageGrid />}>
-      {isNearScreen ? <GalleryShows {...props}/> : <ImageGrid />}
-    </Suspense>
-    </div>;
-}
+export default GalleryShows;
