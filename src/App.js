@@ -3,7 +3,6 @@ import NavAppBar from './components/Navbar/AppNavBar';
 import Footer from './components/Footer/Footer';
 import LazyGalleryShows from './components/galleyShows/LazyGalleryShows';
 import ShowDetails from './components/galleyShows/showDetails';
-import Trending from './components/Trending/Trending';
 import Home from './components/Home/Home';
 import './App.css';
 import './components/galleyShows/showdetail.scss';

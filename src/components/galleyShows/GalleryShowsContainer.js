@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getShows } from '../../selectors';
 import { fetchShows } from '../actions';
-import GalleryShows from './galleryShows';
+import GalleryShows from './GalleryShows';
 
 const GalleryShowsContainer = ({ history }) => {
 
@@ -41,6 +41,7 @@ const GalleryShowsContainer = ({ history }) => {
         const newDataP = newDataN.sort(function (a, b) {
           return a.popularity - b.popularity;
         });
+        console.log(data.results)
         dispatch(fetchShows(data.results));
       });
   };

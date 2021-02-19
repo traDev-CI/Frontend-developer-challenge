@@ -1,6 +1,8 @@
 import React from 'react';
 
 const GalleryShows = ({ shows, handleButtonClick, baseImgURL }) => {
+  
+  //Get the date with the name of the month
   const getNewDate = date => {
     const newDate = new Date(date);
     const monthStrign = new Array(
