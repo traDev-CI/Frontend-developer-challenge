@@ -1,5 +1,7 @@
 import React from "react";
+import Perfil from "../../assest/img/perfil.jpg";
 import "./Home.css";
+
 
 const Home = (props) => {
   const { history } = props;
@@ -16,8 +18,8 @@ const Home = (props) => {
         <div className="card-bottom">
           <span>Let's start</span>
           <img
-            src="https://miro.medium.com/max/600/1*PiHoomzwh9Plr9_GA26JcA.png"
-            alt=""
+            src={Perfil}
+            alt="Alfredo"
             class="img"
           />
           <p className="name">Alfredo Rivas Jimenez</p>
