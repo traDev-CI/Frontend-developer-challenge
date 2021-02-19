@@ -11,6 +11,7 @@ const GalleryShows = (props) => {
   const [baseImgURL, setBaseImgURL] = useState("");
 
   const getConfig = () => {
+    
     let url = "".concat(baseURL, "configuration?api_key=", APIKEY);
     fetch(url)
       .then((result) => {
