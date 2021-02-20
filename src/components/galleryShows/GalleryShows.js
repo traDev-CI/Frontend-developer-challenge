@@ -36,7 +36,8 @@ const GalleryShows = ({ shows, handleButtonClick, baseImgURL }) => {
           >
             <div className="card__image-container">
               <img
-                src={`${baseImgURL}/original/${show.poster_path}`}
+                src={`${baseImgURL}/original/${show.poster_path}` ? `${baseImgURL}/original/${show.poster_path}` :"https://www.google.com/url?sa=i&url=https%3A%2F%2Fgodofwar.fandom.com%2Fes%2Fwiki%2FKratos&psig=AOvVaw3I3oaaHeGl47Mrle4dOo5t&ust=1613868718431000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLCv6M-f9-4CFQAAAAAdAAAAABAD"}
+                onerror="this.onerror=null;this.src='https://placeimg.com/200/300/animals';"
                 alt="Detailed image description would go here."
               />
             </div>
