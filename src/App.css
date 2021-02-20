@@ -4,10 +4,9 @@
   margin: 0;
 }
 
-
 .MuiAppBar-colorPrimary {
-    color: #fff!important;
-    background-color: #AB20C8!important;
+  color: #fff !important;
+  background-color: #ab20c8 !important;
 }
 
 body {
@@ -16,7 +15,7 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;  
+  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
   grid-gap: 40px;
   padding: 60px 0;
 }
@@ -28,21 +27,25 @@ main {
   font-weight: 400;
   color: #fff;
 }
+.text--title{
+  font-size: 20px!important;
+}
 
 .cards {
   grid-column: 2 / span 12;
   display: grid;
   grid-template-columns: repeat(12, minmax(auto, 60px));
   grid-gap: 40px;
+  cursor: pointer;
 }
 
 .card {
-  grid-column-end: span 4;
+  grid-column-end: span 3;
   display: flex;
   flex-direction: column;
   background-color: #474747;
-  cursor: pointer;
   transition: all 0.3s ease 0s;
+  border-radius: 20px;
 }
 
 .card:hover {
@@ -54,6 +57,8 @@ main {
   padding-top: 100%;
   overflow: hidden;
   position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .card__image-container img {
@@ -72,11 +77,11 @@ main {
 .card__title {
   margin-bottom: 20px;
 }
-.card__title .iconFav{
+.card__title .iconFav {
   color: white;
 }
 
-.card__title .iconFavM{
+.card__title .iconFavM {
   color: red;
 }
 
@@ -88,23 +93,34 @@ main {
 
 .card__price {
   margin-left: auto;
-  padding: 5px 20px;
+  padding: 2.5px 5px;
   background-color: #303032;
-  border-radius: 20px;
+  border-radius: 10px;
+}
+.btn-more {
+  font-size: 5px;
+  color: white !important;
 }
 
 @media only screen and (max-width: 1000px) {
   .card {
     grid-column-end: span 6;
   }
+
 }
 
 @media only screen and (max-width: 700px) {
   main {
     grid-gap: 20px;
   }
+  .cards{
+    padding-left: 60px;
+    padding-right: 60px;
+    
+  }
   .card {
     grid-column-end: span 12;
+    
   }
 }
 
@@ -117,8 +133,10 @@ main {
     grid-column: 2 / span 6;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
   .card {
-    grid-column-end: span 6;
+    grid-column-end: span 12;
   }
 }
