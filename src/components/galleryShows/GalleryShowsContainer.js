@@ -20,7 +20,7 @@ const GalleryShowsContainer = ({ history }) => {
       })
       .then(data => {
         setBaseImgURL(data.images.secure_base_url);
-        runSearch('a');
+        runSearch('b');
       })
       .catch(function (err) {
         alert(err);
