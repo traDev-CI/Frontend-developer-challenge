@@ -5,7 +5,6 @@ import { fetchShows } from '../actions';
 import GalleryShows from './GalleryShows';
 
 const GalleryShowsContainer = ({ history }) => {
-
   const baseURL = "https://api.themoviedb.org/3/";
   const APIKEY = "246b0bf3d0e3c6774646b3686452e8ab";
   const shows = useSelector(getShows);
