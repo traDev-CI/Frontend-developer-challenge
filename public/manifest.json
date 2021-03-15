@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "PWA Splash",
+  "short_name": "PWA Splash",
   "icons": [
     {
       "src": "favicon.ico",
@@ -28,8 +28,11 @@
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "description": "PWA SPlash Screens",
+  "scope": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
+  "orientation": "portrait",
+  "theme_color": "#ffffff",
   "background_color": "#ffffff"
 }
