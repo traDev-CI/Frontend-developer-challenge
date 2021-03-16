@@ -1,6 +1,6 @@
 {
-  "name": "PWA Splash",
-  "short_name": "PWA Splash",
+  "name": "Alfredo Rivas Jimenez",
+  "short_name": "Safe Radar",
   "icons": [
     {
       "src": "logo512.png",
@@ -8,12 +8,12 @@
       "sizes": "512x512"
     },
     {
-      "src": "../images/icons/android-chrome-192x192.png",
+      "src": "images/icons/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "../images/icons/android-chrome-512x512.png",
+      "src": "images/icons/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
