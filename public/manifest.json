@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "description": "PWA SPlash Screens",
+  "description": "PWA Splash Screens",
   "scope": ".",
   "start_url": "/",
   "display": "standalone",
